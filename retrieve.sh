@@ -37,7 +37,9 @@ password=$(echo $keycipherhex | xxd -p -r | openssl rsautl -decrypt -inkey ~/.mu
 
 #decrypt the orginal data
 echo -e "waiting for the data from the peer, enjoy!\n"
+echo -e "=====BEGIN THE DATA=========\n"
 echo $cipherhex | xxd -p -r | openssl enc -d -aes-256-cbc -pass pass:$password
+echo -e "=====EOF=========\n"
 echo -e "\nSuccessfully decryption."
 
 
