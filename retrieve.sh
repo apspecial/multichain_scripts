@@ -36,8 +36,8 @@ keycipherhex=$(multichain-cli $chainname gettxoutdata $txid_access $vout_access 
 password=$(echo $keycipherhex | xxd -p -r | openssl rsautl -decrypt -inkey ~/.multichain/$chainname/stream-privkeys/$add0.pem)
 
 #decrypt the orginal data
-echo "waiting for the data from the peer, enjoy!"
+echo -e "waiting for the data from the peer, enjoy!\n"
 echo $cipherhex | xxd -p -r | openssl enc -d -aes-256-cbc -pass pass:$password
-echo "Successfully decryption."
+echo -e "\nSuccessfully decryption."
 
 
